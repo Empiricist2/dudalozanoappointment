@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dudalozanotattoo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            background-image: url(duda.jpg);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0eeee00;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #receipt {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+
+        #Dateh {
+            display: none;
+        }
+
+        #times {
+            display: none;
+        }
+
+        #Durations {
+            display: none;
+        }
+
+        #Locations {
+            display: none;
+        }
+
+        #tobi {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            text-decoration: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 style="color: white;">DUDALOZANOTATTOO APPOINTMENT</h2>
+        <form id="bookingForm">
+            <label for="name" style="color: white;">Full Name:</label>
+            <input type="text" id="name" required>
+            <label for="phone" style="color: white;">Phone Number:</label>
+            <input type="text" id="phone" required>
+            <label for="bookingId" style="color: white;">Booking ID:</label>
+            <input type="text" id="bookingId" name="bookingId" placeholder="TN00000" pattern="TN\d{5}" required>
+            <button type="submit">Submit</button>
+            <button id="tobi"><a href="vip.html">Vip Session</a></button>
+
+        </form>
+        <div id="receipt">
+            <h2>Booking Receipt</h2>
+            <p><strong>Name:</strong> <span id="receiptName"></span></p>
+            <p><strong>Phone Number:</strong> <span id="receiptPhone"></span></p>
+            <p><strong>Booking ID:</strong> <span id="receiptBookingId"></span></p>
+            <p><strong>Date: 06/09/2023</strong><span id="Dateh"></span></p>
+            <p><strong>Time: 3:00pm - 6:00pm</strong><span id="Times"></span></p>
+            <p><strong>Duration: 3 Hours</strong><span id="Durations"></span></p>
+            <p><strong>Location: HighLine Tattoo Studio</strong><span id="Locations"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const bookingId = document.getElementById('bookingId').value;
+            const receiptBookingId = document.getElementById('receiptBookingId');
+
+
+
+            // Display receipt
+            document.getElementById('receiptName').textContent = name;
+            document.getElementById('receiptPhone').textContent = phone;
+            document.getElementById('receiptBookingId').textContent = bookingId;
+            document.getElementById('receipt').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
